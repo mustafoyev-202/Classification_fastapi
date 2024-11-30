@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+voyageai
+python-dotenv
+Jinja2
+scikit-learn
+python-multipart

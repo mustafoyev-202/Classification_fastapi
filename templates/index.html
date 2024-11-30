@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Classification</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Classification</h1>
+        <p>Classify the text:   </p>
+        <form method="post" action="/classify_experience">
+            <textarea name="input_text" placeholder="Enter your text:   " rows="10" required>{{ input_text | default('') }}</textarea>
+            <button type="submit">Classify Text</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Prediction</h2>
+            <p><strong>Class:</strong> {{ result.prediction }}</p>
+            <p><strong>Confidence:</strong> {{ result.confidence | round(2) }}</p>
+        </div>
+        {% elif error %}
+        <div class="error">
+            <p><strong>Error:</strong> {{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
